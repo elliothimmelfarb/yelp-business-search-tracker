@@ -7,7 +7,7 @@
     const vm = this;
     vm.search = search;
 
-    function search(searchObj = { term: 'thai', location: '91016' }) { // TODO: remove default
+    function search(searchObj) {
       Yelp.search(searchObj)
         .then(res => {
           /* eslint-disable no-param-reassign */
