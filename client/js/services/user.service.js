@@ -11,10 +11,16 @@
     this.isAuthenticated = isAuthenticated;
     this.getUsername = getUsername;
     this.addFavorite = addFavorite;
+    this.removeFavorite = removeFavorite;
 
     function addFavorite(yelpId) {
       const userId = $auth.getPayload()._id;
       return $http.put(`api/users/${userId}/addFavorite/${yelpId}`);
+    }
+
+    function removeFavorite(yelpId) {
+      const userId = $auth.getPayload()._id;
+      return $http.delete(`api/users/${userId}/removeFavorite/${yelpId}`);
     }
 
     function isAuthenticated() {

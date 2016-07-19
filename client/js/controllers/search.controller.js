@@ -15,7 +15,6 @@
           Yelp.resultsPage = 1;
           vm.searchResults = Yelp.currentResults = res.data.businesses;
           /* eslint-enable no-param-reassign */
-          console.log(vm.searchResults[0]);
         })
         .catch(err => {
           SweetAlert.swal('Search Failed:', err.data.error);

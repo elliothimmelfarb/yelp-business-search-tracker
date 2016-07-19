@@ -10,3 +10,4 @@ h2 {{details.business.name}}
       a(ng-href='{{details.business.url}}') View on Yelp
     h4 Favorited: {{details.business.favorited}}
     button.btn.btn-success(ng-click='details.addFavorite(details.business.id)') Add to Favorites
+    button.btn.btn-danger(ng-click='details.removeFavorite(details.business.id)') Remove from Favorites

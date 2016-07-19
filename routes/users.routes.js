@@ -15,7 +15,7 @@ router.put('/:userId/addFavorite/:businessId', (req, res) => {
 router.delete('/:userId/removeFavorite/:businessId', (req, res) => {
   User.findById(req.params.userId, (err, dbUser) => {
     if (err) return res.status(400).send(err);
-    return dbUser.removefavorite(req.params.businessId, err => {
+    return dbUser.removeFavorite(req.params.businessId, err => {
       res.status(err ? 400 : 200).send(err);
     });
   });
