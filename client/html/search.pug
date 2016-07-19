@@ -1,0 +1,25 @@
+h2 Search for a business or category by location...
+form.form-inline(ng-submit='search.search(search.searchObj)')
+  .form-group
+    input.form-control(value='thai' ng-model='search.searchObj.term' type='text' placeholder='Category or business name...' size='30')
+  .form-group
+    input.form-control(ng-value='91016' ng-model='search.searchObj.location' type='text' placeholder='Zip code or city name...')
+    span TODO: Make required
+  button.btn.btn-primary Search
+  
+.searchDisplay(ng-show='search.searchResults.length')
+  .jumbotron(ui-sref='details({ id: business.id })' ng-repeat='business in search.searchResults track by $index')
+    .row
+      .col-xs-3.col-md-2.text-center.min-height
+        .image
+          img.img-responsive.img-rounded(ng-src='{{business.image_url}}')
+        .rating  
+          img.img-responsive(max-width='99' ng-src='{{business.rating_img_url_large}}')
+      .col-xs-8
+        p {{business.name}}
+        hr
+        p City: {{business.location.cuty}}
+        hr
+        p Reviews: {{business.review_count}}
+        
+  

@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String },
   password: { type: String },
   createdAt: { type: Date, default: Date.now },
-  favorites: { type: mongoose.Schema.Types.ObjectId, ref: 'Business' },
+  favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Business' }],
 });
 
 
@@ -94,6 +94,7 @@ function authMiddleware(req, res, next) {
 
     return User.findById(payload._id)
       .select('-password')
+      .populate('favorites')
       .exec((err, dbUser) => {
         if (err || !dbUser) return res.status(401).send(err || { error: 'User not found.' });
         req.user = dbUser; // eslint-disable-line no-param-reassign

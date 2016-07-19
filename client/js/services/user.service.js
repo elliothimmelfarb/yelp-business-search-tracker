@@ -10,13 +10,22 @@
     this.logout = logout;
     this.isAuthenticated = isAuthenticated;
     this.getUsername = getUsername;
+    this.addFavorite = addFavorite;
+
+    function addFavorite(yelpId) {
+      const userId = $auth.getPayload()._id;
+      return $http.put(`api/users/${userId}/addFavorite/${yelpId}`);
+    }
 
     function isAuthenticated() {
       return $auth.isAuthenticated();
     }
 
     function getUsername() {
-      return $auth.getPayload().username || 'Not logged in.';
+      if (!$auth.getPayload()) {
+        return 'No payload';
+      }
+      return $auth.getPayload().username;
     }
 
     function logout() {

@@ -21,13 +21,28 @@
       controller: 'LoginController',
       controllerAs: 'login',
     })
-    .state('profile', {
-      url: '/profile',
-      templateUrl: '/html/profile.html',
-      controller: 'ProfileController',
-      controllerAs: 'profile',
+    .state('search', {
+      url: '/search',
+      templateUrl: '/html/search.html',
+      controller: 'SearchController',
+      controllerAs: 'search',
+    })
+    .state('favorites', {
+      url: '/favorites',
+      templateUrl: '/html/favorites.html',
+      controller: 'FavoritesController',
+      controllerAs: 'favorites',
       resolve: {
         CurrentUser: (User) => User.getProfile(),
+      },
+    })
+    .state('details', {
+      url: '/details/:id',
+      templateUrl: '/html/details.html',
+      controller: 'DetailsController',
+      controllerAs: 'details',
+      resolve: {
+        CurrentBusiness: (Yelp, $stateParams) => Yelp.getDetails($stateParams),
       },
     });
     $urlRouterProvider.otherwise('/');

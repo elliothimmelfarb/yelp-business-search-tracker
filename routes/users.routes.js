@@ -6,7 +6,7 @@ const User = require('../models/user');
 router.put('/:userId/addFavorite/:businessId', (req, res) => {
   User.findById(req.params.userId, (err, dbUser) => {
     if (err) return res.status(400).send(err);
-    return dbUser.addBusiness(req.params.businessId, err => {
+    return dbUser.addFavorite(req.params.businessId, err => {
       res.status(err ? 400 : 200).send(err);
     });
   });
@@ -30,6 +30,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/profile', User.authMiddleware, (req, res) => {
+  console.log(req.user);
   res.send(req.user);
 });
 

@@ -44,7 +44,8 @@
     "mongoose": "^4.5.4",
     "morgan": "^1.7.0",
     "pug": "^2.0.0-beta3",
-    "serve-favicon": "^2.3.0"
+    "serve-favicon": "^2.3.0",
+    "yelp": "^1.0.1"
   },
   "devDependencies": {
     "eslint": "^3.0.1",

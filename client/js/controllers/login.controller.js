@@ -10,7 +10,7 @@
     function login(userObj) {
       User.login(userObj)
         .then(() => {
-          $state.go('profile');
+          $state.go('favorites');
         })
         .catch(err => {
           vm.user.email = null;
