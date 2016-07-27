@@ -6,8 +6,11 @@
 #### - MEAN Stack (MongoDB, Express, Angular, Node)
 #### - Gulp (Babel, Concat, Uglify, preprocessors)
 #### - Yelp api
-#### - BCrypt (password hashing)
+#### - [BCryptJS]() (password hashing)
+#### - [Satellizer]() (user auth)
 
 ## This app complies with:
 #### - [Airbnb ES6 Style Guide](https://www.npmjs.com/package/eslint-config-airbnb)
 #### - [John Papa's Angular 1 Style Guide](https://github.com/johnpapa/angular-styleguide/tree/master/a1)
+
+### [Demo hosted on Heroku](https://polar-beach-86016.herokuapp.com/#/search)
