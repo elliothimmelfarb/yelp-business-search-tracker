@@ -3,7 +3,7 @@
     .module('myApp')
     .controller('LoginController', LoginController);
 
-  function LoginController(SweetAlert, User, $state) {
+  function LoginController($rootScope, SweetAlert, User, $state) {
     const vm = this;
     vm.submit = login;
 

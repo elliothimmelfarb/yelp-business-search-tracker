@@ -12,10 +12,17 @@
     this.getUsername = getUsername;
     this.addFavorite = addFavorite;
     this.removeFavorite = removeFavorite;
+    this.getFavorites = getFavorites;
 
-    function addFavorite(yelpId) {
+    function getFavorites() {
       const userId = $auth.getPayload()._id;
-      return $http.put(`api/users/${userId}/addFavorite/${yelpId}`);
+      return $http.get(`api/users/${userId}/getFavorites`)
+        .then(res => res.data);
+    }
+
+    function addFavorite(businessObj) {
+      const userId = $auth.getPayload()._id;
+      return $http.put(`api/users/${userId}/addFavorite`, businessObj);
     }
 
     function removeFavorite(yelpId) {

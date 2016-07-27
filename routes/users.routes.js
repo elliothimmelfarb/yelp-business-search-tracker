@@ -3,10 +3,19 @@ const router = new express.Router();
 const User = require('../models/user');
 // const request = require('request');
 
-router.put('/:userId/addFavorite/:businessId', (req, res) => {
+router.get('/:userId/getFavorites', (req, res) => {
+  User.findById(req.params.userId)
+    .populate('favorites')
+    .exec((err, dbUser) => {
+      if (err || !dbUser) return res.status(400).send(err || { error: 'No user found' });
+      return res.status(200).send(dbUser.favorites);
+    });
+});
+
+router.put('/:userId/addFavorite/', (req, res) => {
   User.findById(req.params.userId, (err, dbUser) => {
     if (err) return res.status(400).send(err);
-    return dbUser.addFavorite(req.params.businessId, err => {
+    return dbUser.addFavorite(req.body, err => {
       res.status(err ? 400 : 200).send(err);
     });
   });

@@ -1,5 +1,16 @@
 h1 Favorites
-h1(ng-hide='favorites.favorites.length') You have no favorites yet
-.searchDisplay(ng-show='favorites.favorites.length')
-  .jumbotron(ui-sref='details({ id: favorite.yelpId })' ng-repeat='favorite in favorites.favorites track by $index')
-    h1 {{favorite.yelpId}}
+h1(ng-hide='favorites.favorites.length') You have no favorites, go search and save some!
+.searchDisplay(ng-if='favorites.favorites.length')
+  .jumbotron(ui-sref='details({ id: business.yelpData.id })' ng-repeat='business in favorites.favorites track by $index')
+    .row
+      .col-xs-3.col-md-2.text-center.min-height
+        .image
+          img.img-responsive.img-rounded(ng-src='{{business.yelpData.image_url}}')
+        .rating  
+          img.img-responsive(max-width='99' ng-src='{{business.yelpData.rating_img_url_large}}')
+      .col-xs-8
+        p {{business.yelpData.name}}
+        hr
+        p City: {{business.yelpData.location.city}}
+        hr
+        p Reviews: {{business.yelpData.review_count}}

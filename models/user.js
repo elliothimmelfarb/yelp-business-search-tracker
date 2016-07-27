@@ -31,13 +31,18 @@ userSchema.statics.register = register;
 let User = {};
 
 
-function addFavorite(yelpId, cb) {
-  Business.findOne({ yelpId }, (err, dbBusiness) => {
+function addFavorite(businessObj, cb) {
+  Business.findOne({ yelpId: businessObj.id }, (err, dbBusiness) => {
     if (err) return cb(err);
     if (!dbBusiness) {
-      return Business.create({ yelpId }, (err, newBusiness) => {
+      const newBusiness = {
+        yelpId: businessObj.id,
+        yelpData: businessObj,
+      };
+
+      return Business.create(newBusiness, (err, newDbBusiness) => {
         if (err) return cb(err);
-        this.favorites.push(newBusiness._id);
+        this.favorites.push(newDbBusiness._id);
         return this.save(err => cb(err));
       });
     }
@@ -57,7 +62,7 @@ function removeFavorite(yelpId, cb) {
     dbBusiness.favorited--; // eslint-disable-line
     return dbBusiness.save(err => {
       if (err) return cb(err);
-      return this.update({ pull: { favorites: dbBusiness._id } }, err => cb(err));
+      return this.update({ $pull: { favorites: dbBusiness._id } }, err => cb(err));
     });
   });
 }
