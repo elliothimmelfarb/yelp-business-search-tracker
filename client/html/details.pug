@@ -1,13 +1,16 @@
-h2 {{details.business.name}}
-.row
-  .col-xs-4.text-center
-    img.img-responsive.img-rounded.profile-img(ng-src='{{details.business.image_url}}')
-    img.img-responsive.profile-img(ng-src='{{details.business.rating_img_url_large}}')
-  .col-xs-8
-    h4 City: {{details.business.location.city}}
-    h4 Phone: {{details.business.phone}}
-    h4 
-      a(ng-href='{{details.business.url}}') View on Yelp
-    h4 Favorited: {{details.business.favorited}}
-    button.btn.btn-success(ng-click='details.addFavorite(details.business)' ng-if='!details.isFavorited') Add to Favorites
-    button.btn.btn-danger(ng-click='details.removeFavorite(details.business.id)' ng-if='details.isFavorited') Remove from Favorites
+.display
+  h2 {{details.business.name}}
+  .row
+    .col-xs-offset-2.col-xs-4.text-center
+      img.img-responsive.img-rounded.profile-img(ng-src='{{details.business.image_url}}')
+      img.img-responsive.profile-img(ng-src='{{details.business.rating_img_url_large}}')
+    .col-xs-4
+      h4 City: {{details.business.location.city}}
+      h4 Phone: {{details.business.phone}}
+      h4 
+        a(ng-href='{{details.business.url}}') View on Yelp
+      h4 Favorited: {{details.business.favorited}}
+      button.btn.btn-success(ng-click='details.addFavorite(details.business)' ng-if='!details.isFavorited') Add to Favorites
+      button.btn.btn-danger(ng-click='details.removeFavorite(details.business.id)' ng-if='details.isFavorited') Remove from Favorites
+hr
+pre {{details.business}}

@@ -1,3 +1,38 @@
+$color-main: #c31200;
+
+@import 'https://fonts.googleapis.com/css?family=Droid+Sans';
+
+body {
+  background-color: $color-main;
+  font-family: 'Droid Sans'
+}
+
+.appArea {
+  background-color: rgb(231, 232, 231);
+  width: 80%;
+  border-radius: 10px;
+  min-height: 100vh;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0px 5px 60px 5px rgb(47, 47, 47)
+}
+
+.buttonArea {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.titleContainer {
+  text-align: center;
+  color: white;
+}
+
+.title {
+  font-size: 50px;
+  font-style: bold;
+  text-shadow: 0px 0px 15px black;
+}
+
 .main-center {
   text-align: center;
   position:relative;
@@ -39,6 +74,14 @@
   margin-bottom: 10px;
 }
 
-.searchDisplay {
+.searchDisplay, .display {
   margin-top: 15px;
+}
+
+.display {
+  text-align: center;
+}
+
+.footer {
+  text-align: center;
 }

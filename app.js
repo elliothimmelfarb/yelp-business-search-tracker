@@ -43,7 +43,7 @@ app.use('/api', require('./routes/api.routes'));
 // //////////////////////////////
 
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Yelp Business Search and Tracker' });
+  res.render('index', { title: 'yelp off of yelp' });
 });
 
 // catch 404 and forward to error handler

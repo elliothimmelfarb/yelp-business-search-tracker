@@ -5,7 +5,7 @@ form.form-inline(ng-submit='search.search(search.searchObj)')
   .form-group
     input.form-control(ng-model='search.searchObj.location' type='text' placeholder='Zip code or city name...' required)
   button.btn.btn-primary Search
-  
+hr
 .searchDisplay(ng-show='search.searchResults.length')
   .jumbotron(ui-sref='details({ id: business.id })' ng-repeat='business in search.searchResults track by $index')
     .row
@@ -14,11 +14,12 @@ form.form-inline(ng-submit='search.search(search.searchObj)')
           img.img-responsive.img-rounded(ng-src='{{business.image_url}}')
         .rating  
           img.img-responsive(max-width='99' ng-src='{{business.rating_img_url_large}}')
-      .col-xs-8
-        p {{business.name}}
+      .col-xs-6
+        h2 {{business.name}}
         hr
-        p City: {{business.location.cuty}}
+        p City: {{business.location.city}}
         hr
         p Reviews: {{business.review_count}}
-        
+      .col-xs-2
+        p Favorited: {{business.favorited}}  
   
