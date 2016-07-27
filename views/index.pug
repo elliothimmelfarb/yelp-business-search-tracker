@@ -30,7 +30,7 @@ body(ng-app='myApp' ng-controller='MainController as main')
       button.btn.btn-lg.btn-default(ng-click='main.logout()' ng-if='main.isAuthenticated()') Logout
       button.btn.btn-lg.btn-default(ui-sref='register' ng-if='!main.isAuthenticated()') Register
       button.btn.btn-lg.btn-default(ui-sref='login' ng-if='!main.isAuthenticated()') Login
-      span(ng-if='main.isAuthenticated()') Hello, {{main.username}}
+      span.hello(ng-if='main.isAuthenticated()') Hello, {{main.username}}
       hr
     ui-view
   .footer.container-fluid  

@@ -1,3 +1,4 @@
+button.btn.btn-primary(ng-click='detail.backToSearch') Back to Search
 .display
   h2 {{details.business.name}}
   .row
@@ -6,11 +7,10 @@
       img.img-responsive.profile-img(ng-src='{{details.business.rating_img_url_large}}')
     .col-xs-4
       h4 City: {{details.business.location.city}}
-      h4 Phone: {{details.business.phone}}
+      h4 Phone: {{details.business.display_phone}}
       h4 
-        a(ng-href='{{details.business.url}}') View on Yelp
+        a(target='_blank' ng-href='{{details.business.url}}') View on Yelp
       h4 Favorited: {{details.business.favorited}}
       button.btn.btn-success(ng-click='details.addFavorite(details.business)' ng-if='!details.isFavorited') Add to Favorites
       button.btn.btn-danger(ng-click='details.removeFavorite(details.business.id)' ng-if='details.isFavorited') Remove from Favorites
 hr
-pre {{details.business}}
